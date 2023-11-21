@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.App-male {
+  background-color: blue;
+  color: white
+}
+
+.App-female {
+  background-color: #ff69b4;
+  color: black;
+}
