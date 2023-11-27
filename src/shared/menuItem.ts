@@ -5,5 +5,6 @@ export interface MenuItem {
 }
 
 export interface MenuProps {
-    menuItems: MenuItem[]
+    menuItems: MenuItem[],
+    onItemClicked: (key: string) => void,
 }

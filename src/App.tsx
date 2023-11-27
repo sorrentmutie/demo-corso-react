@@ -1,31 +1,33 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import { Hello } from './components/Hello';
 import { Menu } from './components/Menu';
-import { Person } from './components/Person';
-import { PersonProps } from './components/personPros';
-import { ProductsPage } from './products/ProductsPage';
-import { MenuItem } from './shared/menuItem';
+import { MenuItem, MenuProps } from './shared/menuItem';
+import axios from 'axios';
+import { MainNavigation } from './components/MainNavigation';
 
 function App() {
-  const person: PersonProps = {
-      gender: "F"
-  }
+  
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
 
-    const menuItems: MenuItem[] = [
-      { key:"1", text: 'Home', link: 'http://www.repubblica.it'},
-      { key:"2", text: 'Features', link: 'http://www.gazzetta.it'},
-      { key:"3", text: 'Pricing', link: 'http://www.google.com'},
-      { key:"4", text: 'About', link: 'http://www.microsoft.com'}
-    ];
+  useEffect( () => {    
+     async function fetchData() {
+        const response = await axios.get<MenuItem[]>('http://localhost:4001/menuItems');
+        setMenuItems(response.data);
+     }
+     fetchData();
+  },[]);
+
+  const navigate = (url: string) => window.location.href = url;
+
+  const menuProps: MenuProps = {
+    menuItems: menuItems,
+    onItemClicked: navigate
+  }
 
   return (
     <div>
-      <Menu menuItems={menuItems}/>
-      <header className="App-header">
-          <Person gender={person.gender}/>
-          <Hello/>
-          <ProductsPage/>
-      </header>
+      <Menu {...menuProps}/>
+      <MainNavigation/>
     </div>
   );
 }

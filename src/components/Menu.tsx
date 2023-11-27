@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import cn from 'classnames';
 import { MenuProps } from "../shared/menuItem";
 
@@ -9,7 +10,7 @@ export const Menu: React.FC<MenuProps> = (props) => {
    // const cls = clicked ? 'container-fluid bg-info': 'container-fluid bg-light'
     const cls = cn('container-fluid', {'bg-info': clicked, 'bg-light': !clicked});
 
-    const navigate = (url: string) => window.open(url);
+    // const navigate = (url: string) => window.open(url);
 
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,11 +24,12 @@ export const Menu: React.FC<MenuProps> = (props) => {
               {
                 props.menuItems.map( (menuItem) => {
                         return (
-                           <li onClick={() => navigate(menuItem.link)} key={menuItem.key} className="nav-item">
+                           <li onClick={() => props.onItemClicked(menuItem.link)} key={menuItem.key} className="nav-item">
                               <div className="nav-link active" aria-current="page">
                                 {menuItem.text}
                               </div>
                            </li>
+                         
                         )
                 })
               }
