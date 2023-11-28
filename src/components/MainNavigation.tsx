@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
 import { AboutPage } from "../pages/AboutPage";
 import { FeaturesPage } from "../pages/FeaturesPage";
-import { PricingPage } from "../pages/PricingPage";
+import { PricingPage } from "../pages/Pricing/PricingPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 
 export function MainNavigation(){
