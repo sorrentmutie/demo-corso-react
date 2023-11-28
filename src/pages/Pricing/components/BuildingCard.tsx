@@ -7,7 +7,7 @@ export const BuildingCard: React.FC<BuildingCardProps> = ({building}) =>
         <div>
            <h3>{building.title}</h3>
            <h3>{building.address}</h3>
-           <MapQuest city={building.city} width={200} height={200}></MapQuest>
+           <MapQuest city={building.city} width={200} height={200} alt="bu"></MapQuest>
         </div>
     );
 }
