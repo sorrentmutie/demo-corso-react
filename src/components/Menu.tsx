@@ -24,12 +24,18 @@ export const Menu: React.FC<MenuProps> = (props) => {
               {
                 props.menuItems.map( (menuItem) => {
                         return (
-                           <li onClick={() => props.onItemClicked(menuItem.link)} key={menuItem.key} className="nav-item">
-                              <div className="nav-link active" aria-current="page">
-                                {menuItem.text}
+                          //  <li onClick={() => props.onItemClicked(menuItem.link)} key={menuItem.key} className="nav-item">
+                          //     <div className="nav-link active" aria-current="page">
+                          //       {menuItem.text}
+                          //     </div>
+                          //  </li>
+                         <li key={menuItem.key} className="nav-item">
+                          <Link to={menuItem.url}>
+                              <div className="nav-link active">
+                                 {menuItem.text}
                               </div>
-                           </li>
-                         
+                          </Link>
+                         </li>
                         )
                 })
               }

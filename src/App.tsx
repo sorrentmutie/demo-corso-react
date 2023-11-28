@@ -4,6 +4,7 @@ import { Menu } from './components/Menu';
 import { MenuItem, MenuProps } from './shared/menuItem';
 import axios from 'axios';
 import { MainNavigation } from './components/MainNavigation';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   
@@ -26,8 +27,10 @@ function App() {
 
   return (
     <div>
-      <Menu {...menuProps}/>
-      <MainNavigation/>
+    <BrowserRouter>
+        <Menu {...menuProps}/>
+        <MainNavigation/>
+    </BrowserRouter>
     </div>
   );
 }
