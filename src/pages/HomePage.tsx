@@ -7,6 +7,9 @@ export function HomePage(){
     const person: PersonProps = {
         gender: "F"
     }
+
+   // const statehistory: History = history.state;
+
     return(
         <div>
             <h1>Home Page</h1>
