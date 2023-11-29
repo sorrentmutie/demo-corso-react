@@ -9,12 +9,11 @@ export const MapQuest: React.FC<MapQuestProps
   const key = "key=jSA1sVGnuPmhezWCJdiVfONPZntFFwQf";
   const url = `${urlBase}${key}&center=${city}&size=${width},${height}@2x`;
 
-const url2="https://www.mapquestapi.com/staticmap/v5/map?key=jSA1sVGnuPmhezWCJdiVfONPZntFFwQf&center=New+York&size=1100,500@2x";
 
   console.log(url);
   return (
     <div>
-      <img alt="" src={url2} {...rest} />
+      <img alt="" src={url} {...rest} />
     </div>
   );
 };
